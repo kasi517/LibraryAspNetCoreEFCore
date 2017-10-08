@@ -13,7 +13,7 @@ namespace LibraryData.Models
         public int Year { get; set; } //Jst store as an int for BC
 
         [Required]
-        public Status Satus { get; set; }
+        public Status Status { get; set; }
 
         [Required]
         public decimal Cost { get; set; }

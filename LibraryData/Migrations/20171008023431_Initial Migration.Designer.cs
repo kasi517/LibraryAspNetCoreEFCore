@@ -12,8 +12,8 @@ using System;
 namespace LibraryData.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20171007053156_Add Initial Entity Models")]
-    partial class AddInitialEntityModels
+    [Migration("20171008023431_Initial Migration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -122,7 +122,7 @@ namespace LibraryData.Migrations
 
                     b.Property<int>("NumberOfCopies");
 
-                    b.Property<int>("SatusId");
+                    b.Property<int>("StatusId");
 
                     b.Property<string>("Title")
                         .IsRequired();
@@ -133,7 +133,7 @@ namespace LibraryData.Migrations
 
                     b.HasIndex("LocationId");
 
-                    b.HasIndex("SatusId");
+                    b.HasIndex("StatusId");
 
                     b.ToTable("LibraryAssets");
 
@@ -302,9 +302,9 @@ namespace LibraryData.Migrations
                         .WithMany("LibraryAssets")
                         .HasForeignKey("LocationId");
 
-                    b.HasOne("LibraryData.Models.Status", "Satus")
+                    b.HasOne("LibraryData.Models.Status", "Status")
                         .WithMany()
-                        .HasForeignKey("SatusId")
+                        .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -25,7 +25,7 @@ namespace LibraryServices
         public IEnumerable<LibraryAsset> GetAll()
         {
             return _context.LibraryAssets
-                .Include(asset => asset.Satus)
+                .Include(asset => asset.Status)
                 .Include(asset => asset.Location);
         }
 

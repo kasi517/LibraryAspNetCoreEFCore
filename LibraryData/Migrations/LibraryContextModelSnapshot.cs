@@ -121,7 +121,7 @@ namespace LibraryData.Migrations
 
                     b.Property<int>("NumberOfCopies");
 
-                    b.Property<int>("SatusId");
+                    b.Property<int>("StatusId");
 
                     b.Property<string>("Title")
                         .IsRequired();
@@ -132,7 +132,7 @@ namespace LibraryData.Migrations
 
                     b.HasIndex("LocationId");
 
-                    b.HasIndex("SatusId");
+                    b.HasIndex("StatusId");
 
                     b.ToTable("LibraryAssets");
 
@@ -301,9 +301,9 @@ namespace LibraryData.Migrations
                         .WithMany("LibraryAssets")
                         .HasForeignKey("LocationId");
 
-                    b.HasOne("LibraryData.Models.Status", "Satus")
+                    b.HasOne("LibraryData.Models.Status", "Status")
                         .WithMany()
-                        .HasForeignKey("SatusId")
+                        .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
